@@ -1,11 +1,424 @@
 <!doctype html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./src/output.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/all.min.css">
 </head>
+
 <body>
-    
+    <header class="py-6 bg-secondary text-primary">
+        <div class="container mx-auto px-6 lg:px-10 flex justify-between items-center">
+            <div class="font-bold" id="#prand-logo-container">
+                <a class="font-bold text-2xl text-purple cursor-pointer" href="#"><img class="max-w-50 lg:max-w-65" src="./images/header-logo.png" alt=""></a>
+            </div>
+
+            <nav class="hidden sm:block ">
+                <ul class="flex space-x-5">
+                    <li></li><a class="hover:text-light" href="#home">Home</a></li>
+                    <li><a class="hover:text-light" href="#products">Products</a></li>
+                    <li><a class="hover:text-light" href="#categories">Categories</a></li>
+                    <li><a class="hover:text-light" href="#about">About</a></li>
+                </ul>
+            </nav>
+
+            <div class="flex gap-4">
+                <button class="cursor-pointer hover:bg-light p-1 rounded-md" id="favorite-products-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                </button>
+
+                <button class="cursor-pointer hover:bg-light p-1 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                        <circle cx="8" cy="21" r="1" />
+                        <circle cx="19" cy="21" r="1" />
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                    </svg>
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+
+    <section
+        class="hero h-110 bg-[url(../images/hero-background.png)] bg-no-repeat bg-cover bg-right md:bg-top  bg-primary/20 bg-blend-color flex justify-center items-center">
+        <div class="container mx-auto px-6 lg:px-10 text-center">
+            <h2 class="font-bold font text-3xl md:text-5xl text-light">Your Beauty, Our Passion</h2>
+            <p class="text-primary text-xl md:text-2xl mt-7">Every You Need to Shine Beauty & Fragrance at the Best
+                Prices</p>
+            <button
+                class="px-4 py-2 rounded-lg text-purple mt-7 bg-light font-semibold shadow-purple cursor-pointer hover:bg-purple hover:text-light">Shop
+                Now</button>
+        </div>
+    </section>
+
+    <section class="h-20 bg-linear-[to_bottom,#D1D0C6_20%,#FFEAD8]"></section>
+
+    <section class="bg-light">
+        <div class="container mx-auto py-6 px-6 lg:px-10 flex items-center justify-center gap-4">
+            <div class="flex-1" id="search-inp-container">
+                <input
+                    class="inline-block mr-[-30px] w-full border border-gray-400 rounded-md px-2 py-1 outline-0 focus:ring-2 focus:ring-gray-400"
+                    type="search" name="search-car" placeholder="Search Products...">
+                <span class="search-icon text-gray-400"><i class="fa-solid fa-magnifying-glass fs-4"></i></span>
+            </div>
+
+            <div class="justify-center gap-4 hidden md:flex " id="display-way">
+                <button class="p-2 rounded-md border border-gray-400 cursor-pointer bg-white hover:bg-light" id="grid-view-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-grid3x3-icon lucide-grid-3x3 text-black">
+                        <rect width="18" height="18" x="3" y="3" rx="2" />
+                        <path d="M3 9h18" />
+                        <path d="M3 15h18" />
+                        <path d="M9 3v18" />
+                        <path d="M15 3v18" />
+                    </svg>
+                </button>
+                <button class="p-2 rounded-md border border-gray-400 cursor-pointer bg-white hover:bg-light" id="grid-view-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-rows4-icon lucide-rows-4 text-black ">
+                        <rect width="18" height="18" x="3" y="3" rx="2" />
+                        <path d="M21 7.5H3" />
+                        <path d="M21 12H3" />
+                        <path d="M21 16.5H3" />
+                    </svg>
+                </button>
+            </div>
+
+            <div>
+                <button
+                    class="bg-green-400 hover:bg-green-500 px-2 md:px-4 outline-none py-2 text-sm rounded-md text-white flex items-center gap-1 cursor-pointer"
+                    id="add-product-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-list-plus-icon lucide-list-plus">
+                        <path d="M11 12H3" />
+                        <path d="M16 6H3" />
+                        <path d="M16 18H3" />
+                        <path d="M18 9v6" />
+                        <path d="M21 12h-6" />
+                    </svg>
+                    <p>Add Product</p>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!--  CARDS   -->
+    <!-- <img src="./images/products/lash-senational-1.jpeg" alt=""> -->
+    <main class="bg-light">
+        <div class="container mx-auto pt-4 pb-6 lg:pb-20 px-6 lg:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+            id="products-container">
+            <!-- <div class="shadow-sm shadow-secondary bg-white rounded-2xl overflow-hidden" id="1">
+                <div class="main-image relative flex-1" id="main-image">
+                    <img class="w-full aspect-[4/3] object-cover" src="https://placehold.co/150x150" alt="">
+                    <span class="hidden rounded-lg py-1 px-2 text-sm bg-danger text-white inline-block absolute top-4 left-4"
+                        id="is-left-stock">No Stock</span>
+                    <span
+                        class="rounded-lg py-1 px-2 text-sm bg-warning text-white inline-block absolute bottom-4 left-4"
+                        id="is-discount">-16%</span>
+                    <div class="absolute top-4 right-4" id="card-btns">
+                        <button class="cursor-pointer bg-light/50 hover:bg-white p-1 rounded-md text-primary"
+                            id="show-details-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-square-pen size-5">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path
+                                    d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z">
+                                </path>
+                            </svg>
+
+                        </button>
+                        <button class="cursor-pointer bg-light/50 hover:bg-white p-1 rounded-md text-primary"
+                            id="add-to-favorite-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class=" px-4 pt-10 pb-8 leading-8 flex-2" id="product-info">
+                    <p class="text-lg font-semibold" id="brand">
+                        essence
+                    </p>
+
+                    <p class="text-primary/70 text-sm" id="description">
+                        Lorem ipsum dolor sit amet.
+                    </p>
+
+                    <div id="rating-stars">
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <span class="text-primary/70 text-sm">(4.7)</span>
+                    </div>
+                    <div class=" flex justify-between items-center" id="Purchase-information">
+                        <div class="flex gap-3 items-center" id="Prices">
+                            <p class="text-2xl font-bold text-purple" id="final-price">$67.5</p>
+                            <p class="text-sm text-primary/70 line-through" id="original-price">$89</p>
+                        </div>
+                        <p class="text-sm bg-light rounded-lg py-1 px-4 " id="left-quantity">5 left</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="shadow-sm shadow-secondary bg-white rounded-2xl overflow-hidden" id="1">
+                <div class="main-image relative flex-1" id="main-image">
+                    <img class="w-full aspect-[4/3] object-cover" src="https://placehold.co/150x150" alt="">
+                    <span class="rounded-lg py-1 px-2 text-sm bg-danger text-white inline-block absolute top-4 left-4"
+                        id="is-left-stock">No Stock</span>
+                    <span
+                        class="rounded-lg py-1 px-2 text-sm bg-warning text-white inline-block absolute bottom-4 left-4"
+                        id="is-discount">-16%</span>
+                    <div class="absolute top-4 right-4" id="card-btns">
+                        <button class="cursor-pointer bg-light/50 hover:bg-white p-1 rounded-md text-primary"
+                            id="show-details-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-square-pen size-5">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path
+                                    d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z">
+                                </path>
+                            </svg>
+
+                        </button>
+                        <button class="cursor-pointer bg-light/50 hover:bg-white p-1 rounded-md text-primary"
+                            id="add-to-favorite-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class=" px-4 pt-10 pb-8 leading-8 flex-2" id="product-info">
+                    <p class="text-lg font-semibold" id="brand">
+                        essence
+                    </p>
+
+                    <p class="text-primary/70 text-sm" id="description">
+                        Lorem ipsum dolor sit amet.
+                    </p>
+
+                    <div id="rating-stars">
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <span class="text-primary/70 text-sm">(4.7)</span>
+                    </div>
+                    <div class=" flex justify-between items-center" id="Purchase-information">
+                        <div class="flex gap-3 items-center" id="Prices">
+                            <p class="text-2xl font-bold text-purple" id="final-price">$67.5</p>
+                            <p class="text-sm text-primary/70 line-through" id="original-price">$89</p>
+                        </div>
+                        <p class="text-sm bg-light rounded-lg py-1 px-4 " id="left-quantity">5 left</p>
+                    </div>
+                </div>
+            </div>
+            <div class="shadow-sm shadow-secondary bg-white rounded-2xl overflow-hidden" id="1">
+                <div class="main-image relative flex-1" id="main-image">
+                    <img class="w-full aspect-[4/3] object-cover" src="https://placehold.co/150x150" alt="">
+                    <span class="rounded-lg py-1 px-2 text-sm bg-danger text-white inline-block absolute top-4 left-4"
+                        id="is-left-stock">No Stock</span>
+                    <span
+                        class="rounded-lg py-1 px-2 text-sm bg-warning text-white inline-block absolute bottom-4 left-4"
+                        id="is-discount">-16%</span>
+                    <div class="absolute top-4 right-4" id="card-btns">
+                        <button class="cursor-pointer bg-light/50 hover:bg-white p-1 rounded-md text-primary"
+                            id="show-details-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-square-pen size-5">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path
+                                    d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z">
+                                </path>
+                            </svg>
+
+                        </button>
+                        <button class="cursor-pointer bg-light/50 hover:bg-white p-1 rounded-md text-primary"
+                            id="add-to-favorite-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class=" px-4 pt-10 pb-8 leading-8 flex-2" id="product-info">
+                    <p class="text-lg font-semibold" id="brand">
+                        essence
+                    </p>
+
+                    <p class="text-primary/70 text-sm" id="description">
+                        Lorem ipsum dolor sit amet.
+                    </p>
+
+                    <div id="rating-stars">
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <span class="text-primary/70 text-sm">(4.7)</span>
+                    </div>
+                    <div class=" flex justify-between items-center" id="Purchase-information">
+                        <div class="flex gap-3 items-center" id="Prices">
+                            <p class="text-2xl font-bold text-purple" id="final-price">$67.5</p>
+                            <p class="text-sm text-primary/70 line-through" id="original-price">$89</p>
+                        </div>
+                        <p class="text-sm bg-light rounded-lg py-1 px-4 " id="left-quantity">5 left</p>
+                    </div>
+                </div>
+            </div>
+            <div class="shadow-sm shadow-secondary bg-white rounded-2xl overflow-hidden" id="1">
+                <div class="main-image relative flex-1" id="main-image">
+                    <img class="w-full aspect-[4/3] object-cover" src="https://placehold.co/150x150" alt="">
+                    <span class="rounded-lg py-1 px-2 text-sm bg-danger text-white inline-block absolute top-4 left-4"
+                        id="is-left-stock">No Stock</span>
+                    <span
+                        class="rounded-lg py-1 px-2 text-sm bg-warning text-white inline-block absolute bottom-4 left-4"
+                        id="is-discount">-16%</span>
+                    <div class="absolute top-4 right-4" id="card-btns">
+                        <button class="cursor-pointer bg-light/50 hover:bg-white p-1 rounded-md text-primary"
+                            id="show-details-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-square-pen size-5">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path
+                                    d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z">
+                                </path>
+                            </svg>
+
+                        </button>
+                        <button class="cursor-pointer bg-light/50 hover:bg-white p-1 rounded-md text-primary"
+                            id="add-to-favorite-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class=" px-4 pt-10 pb-8 leading-8 flex-2" id="product-info">
+                    <p class="text-lg font-semibold" id="brand">
+                        essence
+                    </p>
+
+                    <p class="text-primary/70 text-sm" id="description">
+                        Lorem ipsum dolor sit amet.
+                    </p>
+
+                    <div id="rating-stars">
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star fa-sm" style="color: #FFD43B;"></i>
+                        <span class="text-primary/70 text-sm">(4.7)</span>
+                    </div>
+                    <div class=" flex justify-between items-center" id="Purchase-information">
+                        <div class="flex gap-3 items-center" id="Prices">
+                            <p class="text-2xl font-bold text-purple" id="final-price">$67.5</p>
+                            <p class="text-sm text-primary/70 line-through" id="original-price">$89</p>
+                        </div>
+                        <p class="text-sm bg-light rounded-lg py-1 px-4 " id="left-quantity">5 left</p>
+                    </div>
+                </div> -->
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer class="bg-primary">
+        <div class="container mx-auto py-6 px-6 lg:px-10 grid grid-cols-1 md:grid-cols-4 gap-10 leading-7">
+
+            <div>
+                <div class="font-bold mb-4" id="#prand-logo-container">
+                    <a class="font-bold text-xl text-secondary cursor-pointer" href="#"><img class="max-w-40 lg:max-w-50 xl:max-w-55" src="./images/footer-logo.png" alt=""></a>
+                </div>
+                <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div>
+                <h2 class="text-white font-semibold mb-4">Quick Links</h2>
+                <ul class="text-light">
+                    <li><a class="hover:text-secondary" href="#home">Home</a></li>
+                    <li><a class="hover:text-secondary" href="#products">Products</a></li>
+                    <li><a class="hover:text-secondary" href="#categories">Categories</a></li>
+                    <li><a class="hover:text-secondary" href="#about">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-white font-semibold mb-4">Customer Service</h2>
+                <ul class="text-light">
+                    <li><a class="hover:text-secondary" href="#">Contact Us</a></li>
+                    <li><a class="hover:text-secondary" href="#">FAQ</a></li>
+                    <li><a class="hover:text-secondary" href="#">Shipping Info</a></li>
+                    <li><a class="hover:text-secondary" href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-white font-semibold mb-4">Follow Us</h2>
+                <ul class="text-light">
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-facebook-icon lucide-facebook inline-block mr-2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg><a class="hover:text-secondary" href="#">Facebook</a></li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-twitter-icon lucide-twitter inline-block mr-2">
+                            <path
+                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                        </svg><a class="hover:text-secondary" href="#">Twitter</a></li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-instagram-icon lucide-instagram inline-block mr-2">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg><a class="hover:text-secondary" href="#">Instagram</a></li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-linkedin-icon lucide-linkedin inline-block mr-2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg><a class="hover:text-secondary" href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/all.min.js"></script>
 </body>
+
 </html>
