@@ -11,17 +11,17 @@
 <body>
     <header class="py-6 bg-secondary text-primary">
         <div class="container mx-auto px-6 lg:px-14 flex justify-between items-center">
-            <div class="font-bold" id="#prand-logo-container">
+            <div class="font-bold" id="prand-logo-container">
                 <a class="font-bold text-2xl text-purple cursor-pointer" href="#"><img class="max-w-50 lg:max-w-65"
                         src="./images/header-logo.png" alt=""></a>
             </div>
 
             <nav class="hidden sm:block ">
                 <ul class="flex space-x-5">
-                    <li></li><a class="hover:text-light" href="#home">Home</a></li>
-                    <li><a class="hover:text-light" href="#products">Products</a></li>
-                    <li><a class="hover:text-light" href="#categories">Categories</a></li>
-                    <li><a class="hover:text-light" href="#about">About</a></li>
+                    <li></li><a class="hover:text-light text-lg" href="#home">Home</a></li>
+                    <li><a class="hover:text-light text-lg" href="#products">Products</a></li>
+                    <li><a class="hover:text-light text-lg" href="#categories">Categories</a></li>
+                    <li><a class="hover:text-light text-lg" href="#about">About</a></li>
                 </ul>
             </nav>
 
@@ -32,10 +32,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
-                    <div class="w-5 h-5 text-white text-xs bg-danger absolute hidden justify-center items-center rounded-full bottom-5 left-5"
+                    <div class="wish-list-counter w-5 h-5 text-white text-xs bg-danger absolute hidden justify-center items-center rounded-full bottom-5 left-5"
                         id="wish-list-counter" data-counter>0</div>
                 </button>
-                <button class="cursor-pointer hover:bg-light p-1 rounded-md relative block">
+                <button class="cursor-pointer hover:bg-light p-1 rounded-md relative block" id="display-cart-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class=" lucide lucide-shopping-cart-icon lucide-shopping-cart">
@@ -43,7 +43,7 @@
                         <circle cx="19" cy="21" r="1" />
                         <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
                     </svg>
-                    <div class="w-5 h-5 text-white text-xs bg-danger absolute flex justify-center items-center rounded-full bottom-5 left-5"
+                    <div class="cart-counter w-5 h-5 text-white text-xs bg-purple absolute hidden justify-center items-center rounded-full bottom-5 left-5"
                         id="cart-counter">0</div>
 
                 </button>
@@ -53,12 +53,14 @@
         </div>
     </header>
 
-    <section class="bg-primary/30 bg-blend-color justify-center items-center fixed z-50 inset-0 parent-close hidden" 
+    <section class="bg-primary/30 bg-blend-color justify-center items-center fixed z-50 inset-0 parent-close hidden"
         id="wish-list-container">
         <div class="w-[90%] md:w-[65%] lg:w-[50%] xl:w-[40%] bg-light rounded-2xl">
             <div class="rounded-t-2xl bg-primary mb-5 p-5 flex justify-between" id="wishlist-header">
-                <h2 class="text-white font-bold text-xl ">Wishlist <span class="text-light font-normal text-md">(3
-                        products)</span></h2>
+                <h2 class="text-white font-bold text-xl ">Wishlist (<span
+                        class="wish-list-counter text-light font-normal text-md">0</span>
+                    <span>products</span>)
+                </h2>
                 <button class="close-btn text-white hover:text-light cursor-pointer" id="close-wish-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -75,8 +77,74 @@
                 <span class="search-icon text-shadow-primary/90"><i
                         class="fa-solid fa-magnifying-glass fs-4"></i></span>
             </div>
+            <div class="text-center py-8" id="wish-is-empty">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-heart h-30 w-30 text-primary/50 mx-auto mb-4">
+                    <path
+                        d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+                    </path>
+                </svg>
+                <p class="text-primary/50">Your wishlist is empty</p>
+            </div>
             <div class="p-5 max-h-[540px] overflow-auto parent-close" id="wish-list-body">
 
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary/30 bg-blend-color hidden justify-center items-center fixed z-50 inset-0 parent-close"
+        id="cart-products-container">
+        <div class="w-[80%] sm:w-[40%] lg:w-[35%] xl:w-[25%] bg-light rounded-2xl">
+            <div class="rounded-t-2xl bg-primary mb-5 p-5 flex justify-between" id="cart-header">
+                <h2 class="text-white font-bold text-xl ">Shopping Cart (<span
+                        class="cart-counter text-light font-normal text-md">0</span>
+                    <span class="text-light font-normal text-md">products</span>)
+                </h2>
+                <button class="close-btn text-white hover:text-light cursor-pointer" id="close-wish-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-x-icon lucide-x">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="text-center py-8 w-full h-full" id="cart-is-empty">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-shopping-cart h-30 w-30 text-primary/50 mx-auto mb-4">
+                    <circle cx="8" cy="21" r="1"></circle>
+                    <circle cx="19" cy="21" r="1"></circle>
+                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                    </path>
+                </svg>
+                <p class="text-gray-500">Your cart is empty</p>
+            </div>
+
+            <div class="p-5 max-h-[540px] overflow-auto parent-close" id="cart-products-body">
+
+            </div>
+
+            <div class="p-5">
+                <div class="payment-container hidden items-center justify-between w-full border-t-1 border-t-secondary p-4 mb-3"
+                    id="payment-container">
+                    <p class="net-payable-container font-bold text-2xl underline underline-offset-8"><span>$</span><span
+                            class="net-payable" id="net-payable">0</span>
+                    </p>
+
+                    <button
+                        class="view-details-btn bg-primary hover:bg-primary/90 outline-none py-1 px-2 font-semibold text-lg rounded-md text-white flex items-center justify-center gap-2 cursor-pointer">
+                        <p>Checkout</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-big-right-icon lucide-arrow-big-right">
+                            <path
+                                d="M11 9a1 1 0 0 0 1-1V5.061a1 1 0 0 1 1.811-.75l6.836 6.836a1.207 1.207 0 0 1 0 1.707l-6.836 6.835a1 1 0 0 1-1.811-.75V16a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z" />
+                        </svg>
+                    </button>
+
+                </div>
             </div>
         </div>
     </section>
@@ -151,7 +219,6 @@
     </section>
 
     <!--  CARDS   -->
-    <!-- <img src="./images/products/lash-senational-1.jpeg" alt=""> -->
     <main class="bg-light">
         <div class="container mx-auto pt-4 pb-6 lg:pb-20 px-6 lg:px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
             id="products-container">
